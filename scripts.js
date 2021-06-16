@@ -18,8 +18,8 @@ delete(){
 
 }
 
-appendNumber(){
-
+appendNumber(number){
+    this.currentOperand = number
 }
 chooseOperation(){
 
@@ -30,7 +30,7 @@ compute(){
 }
 
 updateDisplay(){
-    this.currentOperandTextElement.innerText = this.currentOperand
+    this.currentOperandTextElement.innerText = this.cu
 }
 
 }
