@@ -15,6 +15,7 @@ clear() {
 }
 
 delete(){
+    this.currentOperand = this.currentOperand.toString().slice(0,-1)
 
 }
 
@@ -101,5 +102,10 @@ operationButtons.forEach(button => {
 
     allClearButton.addEventListener('click', button => {
         calculator.clear()
+        calculator.updateDisplay()
+    })
+
+    deleteButton.addEventListener('click', button => {
+        calculator.delete()
         calculator.updateDisplay()
     })
