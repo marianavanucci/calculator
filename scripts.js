@@ -87,14 +87,19 @@ button.addEventListener('click', () => {
     })
 })
 
-operationButtons.forEach( button => {
+operationButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.chooseOperation(button.innerText)
         calculator.updateDisplay()
         })
     })
 
-    equalButton.addEventListener('click', button => {
+    equalsButton.addEventListener('click', button => {
         calculator.compute()
+        calculator.updateDisplay()
+    })
+
+    allClearButton.addEventListener('click', button => {
+        calculator.clear()
         calculator.updateDisplay()
     })
