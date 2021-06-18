@@ -19,19 +19,29 @@ delete(){
 }
 
 appendNumber(number){
-    this.currentOperand = number
+    if (number === ',' && this.currentOperand.includes(',')) return
+    this.currentOperand = this.currentOperand.toString() + number.toString()
 }
+// append = acrescentar
 
 chooseOperation(operation){
-
+    if(this.currentOperand ==='') return
+    if (this.previousOperand !== ''){
+        this.compute()
+ }    
+    this.operation = operation
+    this.previousOperand = this.currentOperand
+    this.currentOperand = ''
 }
 
 compute(){
 
 }
+// compute = calcular
 
 updateDisplay(){
     this.currentOperandTextElement.innerText = this.currentOperand
+    this.previousOperandTextElement.innerText = this.previousOperand
     }
 }
 
@@ -51,3 +61,10 @@ button.addEventListener('click', () => {
     calculator.updateDisplay()
     })
 })
+
+operationButtons.forEach( button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText)
+        calculator.updateDisplay()
+        })
+    })
